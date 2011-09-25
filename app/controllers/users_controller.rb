@@ -1,3 +1,5 @@
+#sign up is handled by devise controller, not handled by this controller.
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
