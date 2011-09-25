@@ -19,6 +19,18 @@
   <% end %>
   </b>
 </div>
+
+<div id="user_admin">
+  <b>
+<!-- If the user id signed in and user is an admin, show admin page link -->
+  <% if user_signed_in? %>
+        <% if current_user.admin? %>
+           Add administrator link here!
+        <% end %>
+  <% end %>
+  </b>
+</div>
+
 <%= yield %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
