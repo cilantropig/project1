@@ -1,4 +1,13 @@
 Project1::Application.routes.draw do
+
+  get "admin/view_reports"
+
+  get "admin/index"
+
+  get "admin/manage_users"
+
+  get "admin/manage_posts"
+
   devise_for :users
 
   resources :votes
