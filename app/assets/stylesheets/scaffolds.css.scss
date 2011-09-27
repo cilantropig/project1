@@ -1,5 +1,6 @@
 body {
-  background-color: #fff;
+  background-color: #add8e6;
+  background-image:url('/images/bubbles.jpg');
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -9,6 +10,14 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; }
+
+a:link, a:active, a:visited {
+   color: #CD0000;
+}
+
+input {
+   margin-bottom: 5px;
+}
 
 pre {
   background-color: #eee;

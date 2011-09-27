@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <title>Live Questions</title>
@@ -6,21 +6,50 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-
 </head>
 <body>
+
 <div id="user_nav">
+  <b>
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> Update user information: <%= link_to "Update", edit_user_registration_path%>
   <% else %>
    New user: <%= link_to "Sign up", new_user_registration_path %> Existing user: <%= link_to "Sign in", new_user_session_path %>
   <% end %>
+  </b>
 </div>
+
+<div id="user_admin">
+  <b>
+<!-- If the user id signed in and user is an admin, show admin page link -->
+  <% if user_signed_in? %>
+        <% if current_user.admin? %>
+           Add administrator link here!
+        <% end %>
+  <% end %>
+  </b>
+</div>
+
 <%= yield %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<!-- begin loading gold fish-->
+<span id="Im0aw" style="position:absolute; left:10px; top:50px; width:51px; height:51px; clip:rect(0px 51px 51px 0px); z-index:1">
+<img SRC="/images/jinyu1.gif" WIDTH="51" HEIGHT="51" NAME="img0aw"></span>
+<span id="Im1aw" style="position:absolute; left:10px; top:100px; width:51px; height:51px; clip:rect(0px 51px 51px 0px); z-index:1">
+<img SRC="/images/jinyu1.gif" WIDTH="51" HEIGHT="51" NAME="img1aw"></span>
+<span id="Im2aw" style="position:absolute; left:10px; top:150px; width:51px; height:51px; clip:rect(0px 51px 51px 0px); z-index:1">
+<img SRC="/images/jinyu1.gif" WIDTH="51" HEIGHT="51" NAME="img2aw"></span>
+<span id="Im3aw" style="position:absolute; left:10px; top:200px; width:51px; height:51px; clip:rect(0px 51px 51px 0px); z-index:1">
+<img SRC="/images/jinyu1.gif" WIDTH="51" HEIGHT="51" NAME="img3aw"></span>
 
+<script Language="JavaScript">
+
+      gs9768();
+
+</script>
+<!-- end loading gold fish-->
 </body>
 </html>
