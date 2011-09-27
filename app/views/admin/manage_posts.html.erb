@@ -1,8 +1,9 @@
 <table border="1">
-  <caption><h1>Posts</h1></caption>
+  <caption><h1>Manage Posts</h1></caption>
   <tr>
     <th>Post</th>
     <th>Weight</th>
+    <th>Votes</th>
     <th></th>
   </tr>
   <% @posts.each do |post| %>
@@ -14,6 +15,7 @@
           </dl>
         </td>
         <td></td>
+        <td><%= post.votes %></td>
         <td> <%= link_to 'Delete post', post,
                     :confirm => 'Are you sure to delete this post?',
                     :method => :delete %> </td>
