@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class VotesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @vote = votes(:one)
   end

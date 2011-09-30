@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  body: MyText
+  title: Title1
+  body: Reply1
   user: 
   post: 
 
 two:
-  title: MyString
-  body: MyText
+  title: Title2
+  body: Reply2
   user: 
   post: 
+

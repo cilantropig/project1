@@ -1,15 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  username: MyString
-  password: MyString
+  first_name: User1
+  last_name: Last1
+  email: user1@test.com
+  password: ruby4all
 
 two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  username: MyString
-  password: MyString
+  first_name: User2
+  last_name: Last2
+  email: user2@test.com
+  password: ruby4all
+
+admin1:
+  first_name: Admin1
+  last_name: Last
+  email: admin1@test.com
+  password: ruby4all
+  admin: true
+

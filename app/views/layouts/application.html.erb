@@ -9,6 +9,10 @@
 </head>
 <body>
 
+<div id="background">
+    <img src="/images/bubbles.jpg" class="stretch" alt="" />
+</div>
+
 <div id="user_nav">
   <b>
   <% if user_signed_in? %>
@@ -25,7 +29,7 @@
 <!-- If the user id signed in and user is an admin, show admin page link -->
   <% if user_signed_in? %>
         <% if current_user.admin? %>
-           Add administrator link here!
+           <%= link_to "Application Administration", "admin/index" %>
         <% end %>
   <% end %>
   </b>
@@ -36,6 +40,8 @@
 <p class="alert"><%= alert %></p>
 
 <!-- begin loading gold fish-->
+
+
 <span id="Im0aw" style="position:absolute; left:10px; top:50px; width:51px; height:51px; clip:rect(0px 51px 51px 0px); z-index:1">
 <img SRC="/images/jinyu1.gif" WIDTH="51" HEIGHT="51" NAME="img0aw"></span>
 <span id="Im1aw" style="position:absolute; left:10px; top:100px; width:51px; height:51px; clip:rect(0px 51px 51px 0px); z-index:1">
@@ -51,5 +57,6 @@
 
 </script>
 <!-- end loading gold fish-->
+
 </body>
 </html>

@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @post = posts(:one)
+    @update ={
+        title: 'Title_new',
+        body: 'Body_new'
+    }
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
-      post :create, post: @post.attributes
+      post :create, post: @update
     end
 
     assert_redirected_to post_path(assigns(:post))
@@ -35,7 +40,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should update post" do
-    put :update, id: @post.to_param, post: @post.attributes
+    put :update, id: @post.to_param, post: @update
     assert_redirected_to post_path(assigns(:post))
   end
 
