@@ -30,6 +30,7 @@ User.create(
     :password => 'ruby4all'
 )
 
+Post.delete_all
 Post.create(
     :title => 'Grading question #1',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja'

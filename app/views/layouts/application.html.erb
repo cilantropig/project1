@@ -4,6 +4,8 @@
   <title>Live Questions</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <!-- To allow Rails to fake DELETE http requests via Javascript -->
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
 
 </head>
