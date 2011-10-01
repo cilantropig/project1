@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class RepliesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @reply = replies(:one)
+    @update ={
+        title: 'Title_new',
+        body: 'Body_new'
+    }
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class RepliesControllerTest < ActionController::TestCase
 
   test "should create reply" do
     assert_difference('Reply.count') do
-      post :create, reply: @reply.attributes
+      post :create, reply: @update
     end
 
     assert_redirected_to reply_path(assigns(:reply))
@@ -35,7 +40,7 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   test "should update reply" do
-    put :update, id: @reply.to_param, reply: @reply.attributes
+    put :update, id: @reply.to_param, reply: @update
     assert_redirected_to reply_path(assigns(:reply))
   end
 

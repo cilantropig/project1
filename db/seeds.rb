@@ -11,19 +11,19 @@ User.delete_all
 admin=User.create(first_name: 'First', last_name: 'Last', email: 'admin@glq.com', password: 'ruby4all')
 admin.update_attribute :admin, true
 
-User.create(
+cindy = User.create(
     :first_name => 'Chun',
     :last_name => 'He',
     :email => 'che@ncsu.edu',
     :password => 'ruby4all'
 )
-User.create(
+jeremy = User.create(
     :first_name => 'Jeremy',
     :last_name => 'Aube',
-    :email => 'jkaube@ncsu.edu',
+    :email => 'jjaube@ncsu.edu',
     :password => 'ruby4all'
 )
-User.create(
+aldo = User.create(
     :first_name => 'Aldo',
     :last_name => 'Valenti',
     :email => 'avalent@ncsu.edu',
@@ -33,17 +33,21 @@ User.create(
 Post.delete_all
 Post.create(
     :title => 'Grading question #1',
-    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja'
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => cindy
 )
 Post.create(
     :title => 'Grading question #2',
-    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja'
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy
 )
 Post.create(
     :title => 'Ruby question #1',
-    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja'
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo
 )
 Post.create(
     :title => 'Ruby question #2',
-    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja'
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => cindy
 )

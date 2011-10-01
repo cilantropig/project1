@@ -4,7 +4,7 @@
     <th>Post</th>
     <th>Weight</th>
     <th>Votes</th>
-    <th></th>
+    <th>Actions</th>
   </tr>
   <% @posts.each do |post| %>
       <tr>
@@ -14,8 +14,8 @@
             <dd> <%= truncate(post.body, :length => 80) %> </dd>
           </dl>
         </td>
-        <td></td>
-        <td><%= post.votes %></td>
+        <td><%= post.votes.count %></td>
+        <td><%= post.votes.count %></td>
         <td> <%= link_to 'Delete post', post,
                     :confirm => 'Click Ok to delete this post together with all its replies',
                     :method => :delete %> </td>
