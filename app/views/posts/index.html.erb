@@ -15,7 +15,7 @@
     <td><%= post.body %></td>
     <td><%= post.user.email %></td>
     <td><%= post.votes.count %></td>
-    <td><%= link_to 'Vote', { action: 'create', controller: 'votes', :post => post.id, :user => @user }, method: :post %></td>
+    <td><%= link_to 'Vote', { action: 'create', controller: 'votes', :post_id => post.id}, method: :post %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
