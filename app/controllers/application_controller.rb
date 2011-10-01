@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     "/posts" # <- Path you want to redirect the user to.
   end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
 end
