@@ -3,5 +3,4 @@ class Post < ActiveRecord::Base
   has_many :replies, :dependent => :destroy
   has_many :votes, :dependent => :destroy
   validates :title, :body, :presence => true
-  validates :title, :body, :presence => true
 end
