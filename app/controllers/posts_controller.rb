@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+
+  # before destroying a post calls the admin_user method to check if the current user has permissions to destroy posts
+  before_filter :admin_user, :only => :destroy
+
   # GET /posts
   # GET /posts.json
   def index
@@ -74,13 +78,19 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:success] = "Post deleted."
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to admin_manage_posts_path }
       format.json { head :ok }
     end
   end
 
+  private
+  # called by the filter before calling destroy
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
 
   def search
     @posts = Post.search params[:search]
