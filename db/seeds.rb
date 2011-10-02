@@ -30,23 +30,108 @@ aldo = User.create(
     :password => 'ruby4all'
 )
 
-Post.create(
+Post.delete_all
+post1 = Post.create(
     :title => 'Grading question #1',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => cindy
 )
-Post.create(
+post2 = Post.create(
     :title => 'Grading question #2',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => jeremy
 )
-Post.create(
+post3 = Post.create(
     :title => 'Ruby question #1',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => aldo
 )
-Post.create(
+post4 = Post.create(
     :title => 'Ruby question #2',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => cindy
+)
+
+Reply.delete_all
+reply1 = Reply.create(
+    :title => 'Reply #1',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => cindy,
+    :post => post2
+)
+reply2 = Reply.create(
+    :title => 'Reply #2',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => cindy,
+    :post => post3
+)
+reply3 = Reply.create(
+    :title => 'Reply #3',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post1
+)
+reply4 = Reply.create(
+    :title => 'Reply #4',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post3
+)
+reply5 = Reply.create(
+    :title => 'Reply #5',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post4
+)
+reply6 = Reply.create(
+    :title => 'Reply #6',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo,
+    :post => post1
+)
+reply7 = Reply.create(
+    :title => 'Reply #7',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo,
+    :post => post2
+)
+reply8 = Reply.create(
+    :title => 'Reply #8',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo,
+    :post => post4
+)
+
+Vote.delete_all
+vote1 = Vote.create(
+    :user => cindy,
+    :post => post2
+)
+vote2 = Vote.create(
+    :user => cindy,
+    :post => post3
+)
+vote3 = Vote.create(
+    :user => jeremy,
+    :post => post1
+)
+vote4 = Vote.create(
+    :user => jeremy,
+    :post => post3
+)
+vote5 = Vote.create(
+    :user => jeremy,
+    :post => post4
+)
+vote6 = Vote.create(
+    :user => aldo,
+    :post => post1
+)
+vote7 = Vote.create(
+    :user => aldo,
+    :post => post2
+)
+vote8 = Vote.create(
+    :user => aldo,
+    :post => post4
 )
