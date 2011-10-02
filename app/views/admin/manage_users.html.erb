@@ -14,7 +14,7 @@
         <td> <%= user.first_name+ " " + user.last_name %> </td>
         <td> <%= user.email %> </td>
         <td> <%= link_to 'Delete user', user,
-                    :confirm => 'Are you sure to delete this user?',
+                    :confirm => 'Click Ok to delete this user',
                     :method => :delete %> </td>
       </tr>
   <% end %>

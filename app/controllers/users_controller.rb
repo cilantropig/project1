@@ -1,6 +1,10 @@
 #sign up is handled by devise controller, not handled by this controller.
 
 class UsersController < ApplicationController
+
+  # before destroying a user calls the admin_user method to check if the current user has permissions to destroy users
+  before_filter :admin_user, :only => :destroy
+
   # GET /users
   # GET /users.json
   def index
@@ -76,10 +80,17 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    flash[:success] = "User deleted."
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to admin_manage_users_path }
       format.json { head :ok }
     end
+  end
+
+  private
+  # called by the filter before calling destroy
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
   end
 end
