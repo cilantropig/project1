@@ -13,9 +13,14 @@
     <th>Votes</th>
     <th colspan="4">Actions</th>
   </tr>
-
-<% @posts.each do |post| %>
-  <% if not params[:search] or post.title.downcase.index(params[:search]) or post.body.downcase.index(params[:search]) %>
+<% @posts.sort_by {|post| post.weight}.each do |post| %>
+  <% if post.active? and
+    (
+        not params[:search] or
+        post.title.downcase.index(params[:search]) or
+        post.body.downcase.index(params[:search])
+    )
+  %>
   <tr>
     <td><%= post.title %></td>
     <td><%= post.body %></td>
