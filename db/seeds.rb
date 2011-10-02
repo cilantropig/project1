@@ -31,22 +31,22 @@ aldo = User.create(
 )
 
 Post.delete_all
-Post.create(
+post1 = Post.create(
     :title => 'Grading question #1',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => cindy
 )
-Post.create(
+post2 = Post.create(
     :title => 'Grading question #2',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => jeremy
 )
-Post.create(
+post3 = Post.create(
     :title => 'Ruby question #1',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => aldo
 )
-Post.create(
+post4 = Post.create(
     :title => 'Ruby question #2',
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => cindy
