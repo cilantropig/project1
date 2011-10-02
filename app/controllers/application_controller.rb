@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_path(resource)
+    "/admin/index"
+  end
 end

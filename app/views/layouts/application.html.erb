@@ -20,8 +20,6 @@
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> Update user information: <%= link_to "Update", edit_user_registration_path%>
-  <% else %>
-   New user: <%= link_to "Sign up", new_user_registration_path %> Existing user: <%= link_to "Sign in", new_user_session_path %>
   <% end %>
   </b>
 </div>
@@ -31,11 +29,12 @@
 <!-- If the user id signed in and user is an admin, show admin page link -->
   <% if user_signed_in? %>
         <% if current_user.admin? %>
-           <%= link_to "Application Administration", "admin/index" %>
+           <%= link_to "Application Administration", admin_manage_users_path %>
         <% end %>
   <% end %>
   </b>
 </div>
+
 
 <%= yield %>
 <p class="notice"><%= notice %></p>
