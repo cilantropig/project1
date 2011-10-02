@@ -51,3 +51,53 @@ post4 = Post.create(
     :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
     :user => cindy
 )
+
+Reply.delete_all
+reply1 = Reply.create(
+    :title => 'Reply #1',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => cindy,
+    :post => post2
+)
+reply2 = Reply.create(
+    :title => 'Reply #2',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => cindy,
+    :post => post3
+)
+reply3 = Reply.create(
+    :title => 'Reply #3',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post1
+)
+reply4 = Reply.create(
+    :title => 'Reply #4',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post3
+)
+reply5 = Reply.create(
+    :title => 'Reply #5',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post4
+)
+reply6 = Reply.create(
+    :title => 'Reply #6',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo,
+    :post => post1
+)
+reply7 = Reply.create(
+    :title => 'Reply #7',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo,
+    :post => post2
+)
+reply8 = Reply.create(
+    :title => 'Reply #8',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => aldo,
+    :post => post4
+)
