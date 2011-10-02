@@ -15,11 +15,7 @@
   </tr>
 <% @posts.sort_by {|post| post.weight}.each do |post| %>
   <% if post.active? and
-    (
-        not params[:search] or
-        post.title.downcase.index(params[:search]) or
-        post.body.downcase.index(params[:search])
-    )
+        post.was_searched_for?(params[:search])
   %>
   <tr>
     <td><%= post.title %></td>

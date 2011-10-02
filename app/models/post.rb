@@ -21,4 +21,14 @@ class Post < ActiveRecord::Base
     return seconds - self.votes.count
   end
 
+  def was_searched_for?(search)
+    if search == nil or
+        self.title.downcase.index(search) or
+        self.body.downcase.index(search)
+      return true
+    else
+      return false
+    end
+  end
+
 end
