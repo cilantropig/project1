@@ -101,3 +101,37 @@ reply8 = Reply.create(
     :user => aldo,
     :post => post4
 )
+
+Vote.delete_all
+vote1 = Vote.create(
+    :user => cindy,
+    :post => post2
+)
+vote2 = Vote.create(
+    :user => cindy,
+    :post => post3
+)
+vote3 = Vote.create(
+    :user => jeremy,
+    :post => post1
+)
+vote4 = Vote.create(
+    :user => jeremy,
+    :post => post3
+)
+vote5 = Vote.create(
+    :user => jeremy,
+    :post => post4
+)
+vote6 = Vote.create(
+    :user => aldo,
+    :post => post1
+)
+vote7 = Vote.create(
+    :user => aldo,
+    :post => post2
+)
+vote8 = Vote.create(
+    :user => aldo,
+    :post => post4
+)
