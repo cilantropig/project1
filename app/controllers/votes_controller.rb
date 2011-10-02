@@ -46,10 +46,10 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
-        format.json { render json: @vote, status: :created, location: @vote }
+        format.html { redirect_to posts_path, notice: 'Vote was successfully created.' }
+        format.json { render json: posts_path, status: :created, location: @posts }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to posts_path, :flash => {:alert => "You can only vote once per post!"} }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end

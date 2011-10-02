@@ -1,3 +1,18 @@
 // Place all the styles related to the Votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+alert
+{
+	overflow: hidden;
+	z-index: 999;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	height: 0;
+	color: #000;
+	font: 20px/40px arial, sans-serif;
+	opacity: .9;
+}
