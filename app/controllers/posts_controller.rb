@@ -92,4 +92,8 @@ class PostsController < ApplicationController
     redirect_to(root_path) unless current_user.admin?
   end
 
+  def search
+    @posts = Post.search params[:search]
+  end
+
 end

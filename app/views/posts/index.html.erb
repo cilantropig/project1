@@ -1,4 +1,9 @@
-<h1>Listing posts</h1>
+<h1>Create and search posts here</h1>
+
+<form name="search_posts" method="get">
+  <input name="search" type="text" size="20" />
+  <input type="submit" value="Search Posts" />
+</form>
 
 <table border="1">
   <tr>
@@ -8,8 +13,10 @@
     <th>Votes</th>
     <th colspan="4">Actions</th>
   </tr>
-
-<% @posts.each do |post| %>
+ <% @posts.sort_by {|post| post.weight}.each do |post| %>
+  <% if post.active? and
+        post.was_searched_for?(params[:search])
+  %>
   <tr>
     <td><%= post.title %></td>
     <td><%= post.body %></td>
@@ -20,6 +27,7 @@
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
+  <% end %>
 <% end %>
 </table>
 
