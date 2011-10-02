@@ -10,4 +10,13 @@
   <% end %>
   </b>
 </div>
+
+<%= form_tag(posts_path, :method => "get") do %>
+      <%= label_tag(:search, "Search for posts:") %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Search") %>
+  <% end %>
+
+
+
 <br />
