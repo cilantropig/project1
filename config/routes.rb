@@ -8,6 +8,8 @@ Project1::Application.routes.draw do
 
   get "admin/manage_posts"
 
+  get "posts/search"
+
   devise_for :users
 
   resources :votes

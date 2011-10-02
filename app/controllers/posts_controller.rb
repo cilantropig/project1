@@ -80,4 +80,10 @@ class PostsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+  def search
+    @posts = Post.search params[:search]
+  end
+
 end
