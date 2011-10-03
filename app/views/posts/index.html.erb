@@ -26,7 +26,6 @@
               <%= post.body %>
               <% post.replies.each do |reply| %>
                 <br>
-                <br>
                 <%= mail_to reply.user.email, reply.user.first_name+' '+reply.user.last_name %>
                 &nbsp;
                 <strong><%= post.title %></strong>
@@ -38,6 +37,11 @@
             </dd>
           </dl>
         </td>
+        <% if user_signed_in? and current_user.admin?%>
+        <td>
+          pippo
+        </td>
+        <% end %>
       </tr>
     <% end %>
   <% end %>
