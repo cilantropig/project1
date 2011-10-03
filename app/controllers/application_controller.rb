@@ -9,4 +9,32 @@ class ApplicationController < ActionController::Base
       "/posts" # <- Path you want to redirect the user to.
 #    end
   end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
+
+  def admin_path(resource)
+    "/admin/index"
+  end
 end
