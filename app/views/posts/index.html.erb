@@ -5,6 +5,13 @@
   <input type="submit" value="Search Posts" />
 </form>
 
+<% if user_signed_in? and current_user.admin?%>
+    <%= link_to "Manage users", admin_manage_users_path %>&nbsp;
+    <%= link_to "View reports", admin_view_reports_path %>
+    <br>
+    <br>
+<% end %>
+
 <table border="1">
   <% @posts.sort_by {|post| post.weight}.each do |post| %>
     <% if post.active? and post.was_searched_for?(params[:search]) %>
