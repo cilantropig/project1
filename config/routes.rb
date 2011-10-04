@@ -1,5 +1,7 @@
 Project1::Application.routes.draw do
 
+  resources :reply_votes
+
   get "admin/view_reports"
 
   get "admin/index"

@@ -25,11 +25,19 @@
               &nbsp;
               <small><%= post.created_at %></small>
               &nbsp;
-              <%= link_to 'Reply', { action: 'create', controller: 'replies', :post_id => post.id }, method: :post %>
+              <%= link_to 'Reply', action: 'new', controller: 'replies', :post_id => post.id %>
             </dt>
             <dd>
               <%= post.body %>
-              <% post.replies.each do |reply| %>
+              <% post.replies.sort_by {|reply| reply.weight}.each do |reply| %>
+                <br>
+                <%= reply.reply_votes.count %>
+
+                  <% if current_user == reply.user %>
+                      <span>Votes</span> <!-- cannot vote your own post -->
+                  <% else %>
+                    <%= link_to 'Votes', { action: 'create', controller: 'reply_votes', :reply_id => reply.id} , method: :post %>
+                  <% end %>
                 <br>
                 <%= mail_to reply.user.email, reply.user.first_name+' '+reply.user.last_name %>
                 &nbsp;
@@ -78,6 +86,8 @@
 <% end %>
 </table>
 -->
+
+
 
 <br />
 

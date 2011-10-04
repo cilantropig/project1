@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :replies, :dependent => :destroy
   has_many :votes, :dependent => :destroy
 
-  validates :title, :body, :presence => true
+  validates :title, :body, :user_id, :presence => true
 
  # Simple search
   def self.search(search)
