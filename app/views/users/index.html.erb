@@ -3,13 +3,7 @@
 <br/>
 <h2 class="big">Goldfish Live Questions is an on-line application for question posting. Your questions will be answered here by professors, TAs and other students.</h2>
 
-<div id="user_nav">
-  <b>
-  <% if !user_signed_in? %>
-   New user: <%= link_to "Sign up", new_user_registration_path %> Existing user: <%= link_to "Sign in", new_user_session_path %>
-  <% end %>
-  </b>
-</div>
+
 
 <%= form_tag(posts_path, :method => "get") do %>
       <%= label_tag(:search, "Search for posts:") %>
