@@ -81,7 +81,7 @@ class PostsController < ApplicationController
     flash[:success] = "Post deleted."
 
     respond_to do |format|
-      format.html { redirect_to admin_manage_posts_path }
+      format.html { redirect_to posts_path }
       format.json { head :ok }
     end
   end

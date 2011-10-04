@@ -44,7 +44,7 @@
         </td>
         <% if user_signed_in? and current_user.admin?%>
         <td>
-          pippo
+         <%= link_to 'Delete', post, :confirm => 'Click Ok to delete this post', :method => :delete %>
         </td>
         <% end %>
       </tr>
