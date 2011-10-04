@@ -24,13 +24,10 @@
   </b>
 </div>
 
-<div id="user_admin">
+<div id="user_nav">
   <b>
-<!-- If the user id signed in and user is an admin, show admin page link -->
-  <% if user_signed_in? %>
-        <% if current_user.admin? %>
-           <%= link_to "Application Administration", admin_manage_users_path %>
-        <% end %>
+  <% if !user_signed_in? %>
+   New user: <%= link_to "Sign up", new_user_registration_path %> Existing user: <%= link_to "Sign in", new_user_session_path %>
   <% end %>
   </b>
 </div>
@@ -39,6 +36,8 @@
 <%= yield %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
+
 
 <!-- begin loading gold fish-->
 

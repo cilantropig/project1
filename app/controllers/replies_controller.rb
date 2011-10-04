@@ -25,6 +25,7 @@ class RepliesController < ApplicationController
   # GET /replies/new.json
   def new
     @reply = Reply.new
+    #@reply.post = Post.find(params[:post_id])       <- need to past into create
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class RepliesController < ApplicationController
   # POST /replies.json
   def create
     @reply = Reply.new(params[:reply])
+    @reply.user = current_user
 
     respond_to do |format|
       if @reply.save
