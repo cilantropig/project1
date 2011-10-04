@@ -12,7 +12,12 @@
         <td>
           <dl>
             <dt>
-              <%= post.votes.count %> <%= link_to 'Votes', { action: 'create', controller: 'votes', :post_id => post.id}, method: :post %>
+              <%= post.votes.count %>
+              <% if current_user == post.user %>
+                  <span>Votes</span> <!-- cannot vote your own post -->
+              <% else %>
+                <%= link_to 'Votes', { action: 'create', controller: 'votes', :post_id => post.id} , method: :post %>
+              <% end %>
               <br>
               <%= mail_to post.user.email, post.user.first_name+' '+post.user.last_name %>
               &nbsp;
@@ -20,7 +25,7 @@
               &nbsp;
               <small><%= post.created_at %></small>
               &nbsp;
-              <%= link_to 'Reply', { action: 'create', controller: 'replies', :post_id => post.id}, method: :post %>
+              <%= link_to 'Reply', { action: 'create', controller: 'replies', :post_id => post.id }, method: :post %>
             </dt>
             <dd>
               <%= post.body %>
@@ -28,7 +33,7 @@
                 <br>
                 <%= mail_to reply.user.email, reply.user.first_name+' '+reply.user.last_name %>
                 &nbsp;
-                <strong><%= post.title %></strong>
+                <strong><%= reply.title %></strong>
                 &nbsp;
                 <small><%= reply.created_at %></small>
                 <br>
