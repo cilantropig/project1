@@ -37,7 +37,7 @@
         <td> <%= user.votes_on_own %> </td>
         <td> <%= percentage(user.posts.count.to_f / @sum_of_posts) %> </td>
         <td> <%= percentage(user.replies.count.to_f / @sum_of_replies) %> </td>
-        <td> <%= percentage(user.votes_on_own.to_f / @sum_of_votes) %> </td>
+        <td> <%= percentage(user.votes_on_own.to_f / (@sum_of_votes + @sum_of_reply_votes)) %> </td>
 
       </tr>
   <% end %>
@@ -47,9 +47,9 @@
       <td> <%= @sum_of_replies %> </td>
       <td> <%= @sum_of_votes %> </td>
       <td> <%= @sum_of_replies %> </td>
-      <td> <%= @sum_of_votes_on_posts %> </td>
-      <td> <%= @sum_of_votes_on_replies %> </td>
       <td> <%= @sum_of_votes %> </td>
+      <td> <%= @sum_of_reply_votes %> </td>
+      <td> <%= @sum_of_votes + @sum_of_reply_votes %> </td>
       <td> <%= percentage(1) %></td>
       <td> <%= percentage(1) %></td>
       <td> <%= percentage(1) %></td>

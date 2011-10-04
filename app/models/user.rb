@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :votes
   has_many :replies
+  has_many :reply_votes
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true, :uniqueness => true
@@ -28,13 +29,13 @@ class User < ActiveRecord::Base
 
   def votes_on_posts
     sum_of_votes = 0
-    self.posts.each {|post| sum_of_votes += post.votes.count}
+    self.posts.each { |post| sum_of_votes += post.votes.count }
     return sum_of_votes
   end
 
   def votes_on_replies
     sum_of_votes = 0
-    #self.replies.each {|reply| sum_of_votes += reply.votes.count}
+    self.replies.each { |reply| sum_of_votes += reply.reply_votes.count }
     return sum_of_votes
   end
 
