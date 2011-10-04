@@ -1,0 +1,57 @@
+<br/>
+<%= link_to 'Create new administrator account', new_user_path %>
+<br/>
+<br/>
+<table border="1">
+  <caption><h1>Users Report</h1></caption>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Posts</th>
+    <th>Replies</th>
+    <th>Votes</th>
+    <th>Replies on Posts</th>
+    <th>Votes on Posts</th>
+    <th>Votes on Replies</th>
+    <th>Total Votes on Own</th>
+    <th>%Posts</th>
+    <th>%Replies</th>
+    <th>%Votes on Own</th>
+    <th></th>
+  </tr>
+  <%
+     def percentage(number)
+         return number_to_percentage(number * 100, :precision => 2)
+     end
+  %>
+  <% @users.each do |user| %>
+      <tr>
+        <td> <%= user.first_name+ " " + user.last_name %> </td>
+        <td> <%= user.email %> </td>
+        <td> <%= user.posts.count %> </td>
+        <td> <%= user.replies.count %> </td>
+        <td> <%= user.votes.count %> </td>
+        <td> <%= user.replies_on_posts %> </td>
+        <td> <%= user.votes_on_posts %> </td>
+        <td> <%= user.votes_on_replies %> </td>
+        <td> <%= user.votes_on_own %> </td>
+        <td> <%= percentage(user.posts.count.to_f / @sum_of_posts) %> </td>
+        <td> <%= percentage(user.replies.count.to_f / @sum_of_replies) %> </td>
+        <td> <%= percentage(user.votes_on_own.to_f / @sum_of_votes) %> </td>
+
+      </tr>
+  <% end %>
+    <tr>
+      <td colspan="2"> Total </td>
+      <td> <%= @sum_of_posts %> </td>
+      <td> <%= @sum_of_replies %> </td>
+      <td> <%= @sum_of_votes %> </td>
+      <td> <%= @sum_of_replies %> </td>
+      <td> <%= @sum_of_votes_on_posts %> </td>
+      <td> <%= @sum_of_votes_on_replies %> </td>
+      <td> <%= @sum_of_votes %> </td>
+      <td> <%= percentage(1) %></td>
+      <td> <%= percentage(1) %></td>
+      <td> <%= percentage(1) %></td>
+    </tr>
+</table>

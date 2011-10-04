@@ -101,6 +101,12 @@ reply8 = Reply.create(
     :user => aldo,
     :post => post4
 )
+reply9 = Reply.create(
+    :title => 'Reply #9',
+    :body => 'lsdkj asdlkjfa sdkjfalksd falskdjf asdkjflkasd falskdjflas lsdkjkljfas dlkjfalksdf alsdkjflasd  lsldjlkjasd lsjdlkfja',
+    :user => jeremy,
+    :post => post1
+)
 
 Vote.delete_all
 vote1 = Vote.create(
@@ -134,4 +140,8 @@ vote7 = Vote.create(
 vote8 = Vote.create(
     :user => aldo,
     :post => post4
+)
+vote9 = Vote.create(
+    :user => admin,
+    :post => post1
 )
