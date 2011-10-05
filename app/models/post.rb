@@ -5,12 +5,6 @@ class Post < ActiveRecord::Base
 
   validates :title, :body, :user_id, :presence => true
 
- # Simple search
-  def self.search(search)
-    search_condition = "%" + search + "%"
-    find(:all, :conditions => ['title LIKE ? OR body LIKE ?', search_condition, search_condition])
-  end
-
   public
 
   # weighted search

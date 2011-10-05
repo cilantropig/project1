@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def equalsFloat(float1, float2)
+    return (float1 - float2).abs < 0.001
+  end
 end
