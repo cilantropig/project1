@@ -27,7 +27,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: @update
+      post :create, user: {:first_name => 'A', :last_name=>'B', :email => 'test@test1.com', :password=>'ruby4all', :confirm_password=>'ruby4all'}
     end
 
     assert_redirected_to user_path(assigns(:user))
@@ -53,6 +53,6 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user.to_param
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to admin_manage_users_path
   end
 end
