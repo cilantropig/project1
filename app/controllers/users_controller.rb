@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   # before destroying a user calls the admin_user method to check if the current user has permissions to destroy users
   before_filter :admin_user, :only => :destroy
+  before_filter :admin_user, :only => :promote
 
   # GET /users
   # GET /users.json
@@ -88,9 +89,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def promote
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attribute :admin, true
+        format.html { redirect_to admin_manage_users_path :notice => "User successfully promoted."}
+        format.json { head :ok }
+      else
+        format.html { redirect_to admin_manage_users_path :notice => "User not promoted."}
+        format.json { head :ok }
+      end
+    end
+  end
+
+
   private
   # called by the filter before calling destroy
   def admin_user
-    redirect_to(root_path) unless current_user.admin?
+    redirect_to(root_path) unless user_signed_in? and current_user.admin?
   end
 end

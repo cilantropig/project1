@@ -37,7 +37,7 @@
               <small><%= post.created_at %></small>
               &nbsp;
               <% if user_signed_in? %>
-                 <%= link_to 'Reply', action: 'new', controller: 'replies', :post_id => post.id %>
+                 <%= link_to 'Reply', { action: 'new', controller: 'replies', :post_id => post.id} , method: :get %>
               <% end %>
             </dt>
             <dd>

@@ -6,13 +6,14 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
-  has_many :posts
-  has_many :votes
-  has_many :replies
-  has_many :reply_votes
+  has_many :posts, :dependent => :destroy
+  has_many :votes, :dependent => :destroy
+  has_many :replies, :dependent => :destroy
+  has_many :reply_votes, :dependent => :destroy
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true, :uniqueness => true
+
   #validates :password, :presence => true       devise will handle this
 
 

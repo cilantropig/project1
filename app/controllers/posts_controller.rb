@@ -89,11 +89,7 @@ class PostsController < ApplicationController
   private
   # called by the filter before calling destroy
   def admin_user
-    redirect_to(root_path) unless current_user.admin?
-  end
-
-  def search
-    @posts = Post.search params[:search]
+    redirect_to(root_path) unless user_signed_in? and current_user.admin?
   end
 
 end

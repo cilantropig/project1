@@ -1,21 +1,34 @@
-<br/>
-<%= link_to 'Create new administrator account', new_user_path %>
-<br/>
-<br/>
 <table border="1">
   <caption><h1>Manage Users</h1></caption>
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Actions</th>
+    <th colspan="2">Actions</th>
   </tr>
   <% @users.each do |user| %>
       <tr>
         <td> <%= user.first_name+ " " + user.last_name %> </td>
         <td> <%= user.email %> </td>
-        <td> <%= link_to 'Delete user', user,
-                    :confirm => 'Click Ok to delete this user',
-                    :method => :delete %> </td>
+        <td>
+          <% if user != current_user %>
+              <%= link_to 'Delete user', user,
+                        :confirm => 'Click Ok to delete this user',
+                        :method => :delete %>
+                  <br>
+          <% else %>
+            <span>Current user</span>
+              <% end %>
+        </td>
+        <td>
+          <% if !user.admin? %>
+              <%= link_to 'Make admin', :controller => "users",
+                                  :action => "promote" , :id => user.id
+                                   %>
+          <% else %>
+            <span>Already an admin</span>
+          <% end %>
+
+        </td>
       </tr>
   <% end %>
 </table>

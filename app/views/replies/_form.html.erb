@@ -20,6 +20,10 @@
     <%= f.text_area :body %>
   </div>
 
+    <div class="field">
+      <%= f.hidden_field(:post_id, :value => params[:post_id]) %>
+    </div>
+
     <%= f.submit %>
   </div>
 <% end %>

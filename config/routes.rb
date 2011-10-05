@@ -22,6 +22,8 @@ Project1::Application.routes.draw do
 
   resources :users
 
+  match 'users/:id/promote' => 'users#promote'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
