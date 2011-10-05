@@ -5,13 +5,19 @@ class UsersControllerTest < ActionController::TestCase
 
   setup do
     @user = users(:one)
+    sign_in @user
+
     @update={
         :first_name=>'Test2',
         :last_name => 'Last2',
         :email => 'user1@test.com',
         :password => 'ruby4all'
     }
-    sign_in @user
+  end
+
+  def admin_sign_in
+    @admin = users(:admin1)
+    sign_in @admin
   end
 
   test "should get index" do
@@ -38,17 +44,35 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  #user update and deletion is handled by devise
+
+  test "user should not get edit" do
     get :edit, id: @user.to_param
-    assert_response :success
+    assert_redirected_to root_path
   end
 
-  test "should update user" do
+  test "user should not update user" do
+      put :update, id: @user.to_param, user: @update
+      assert_redirected_to root_path
+  end
+
+  test "admin should update user" do
+    admin_sign_in
     put :update, id: @user.to_param, user: @update
     assert_redirected_to user_path(assigns(:user))
   end
 
-  test "should destroy user" do
+  test "user should not destroy user" do
+    assert_no_difference('User.count') do
+      delete :destroy, id: @user.to_param
+    end
+
+    assert_redirected_to root_path
+  end
+
+  test "admin should destroy user" do
+    admin_sign_in
+
     assert_difference('User.count', -1) do
       delete :destroy, id: @user.to_param
     end

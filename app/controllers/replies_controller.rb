@@ -1,4 +1,10 @@
 class RepliesController < ApplicationController
+
+
+  # before destroying a post calls the admin_user method to check if the current user has permissions to destroy posts
+  before_filter :admin_user, :except => [:index, :show, :new, :create]
+  before_filter :authorized, :except => [:index, :show]
+
   # GET /replies
   # GET /replies.json
   def index
@@ -81,5 +87,14 @@ class RepliesController < ApplicationController
       format.html { redirect_to replies_url }
       format.json { head :ok }
     end
+  end
+  private
+  # called by the filter before calling destroy
+  def admin_user
+    redirect_to(root_path) unless user_signed_in? and current_user.admin?
+  end
+
+  def authorized
+    redirect_to(root_path) unless user_signed_in?
   end
 end

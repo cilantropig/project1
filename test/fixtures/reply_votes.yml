@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  reply: 
-  user: 
+  id: 1
+  reply_id: 1
+  user_id: 1
 
 two:
-  reply: 
-  user: 
+  id: 2
+  reply_id: 2
+  user_id:  2

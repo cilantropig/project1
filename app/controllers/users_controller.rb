@@ -3,8 +3,8 @@
 class UsersController < ApplicationController
 
   # before destroying a user calls the admin_user method to check if the current user has permissions to destroy users
-  before_filter :admin_user, :only => :destroy
-  before_filter :admin_user, :only => :promote
+
+  before_filter :admin_user, :except => [:index, :show, :new, :create]
 
   # GET /users
   # GET /users.json
@@ -62,6 +62,7 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   # PUT /users/1.json
+  # this is admind only method, user update for itself handled by devise
   def update
     @user = User.find(params[:id])
 
@@ -78,6 +79,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
+  # this is admin only method, user cancel account is handled by devise
   def destroy
     @user = User.find(params[:id])
     @user.destroy

@@ -1,18 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   first_name: User1
   last_name: Last1
   email: user1@test.com
   password: ruby4all
 
 two:
+  id: 2
   first_name: User2
   last_name: Last2
   email: user2@test.com
   password: ruby4all
 
 admin1:
+  id: 3
   first_name: Admin1
   last_name: Last
   email: admin1@test.com
