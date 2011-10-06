@@ -19,4 +19,4 @@ Default admin user login: admin@glq.com/ruby4all
 
 5. Other notes
 Extra credit: Webrat is used for integration testing
-Additional gem included: devise, webrat, cucumber
+Additional gem included: devise, webrat, cucumber, timecop
