@@ -1,49 +1,45 @@
 require 'test_helper'
 
 class ReplyVotesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @reply_vote = reply_votes(:one)
+    @user = users(:one)
+    @reply = replies(:one)
+    sign_in @user
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:reply_votes)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
+  def admin_sign_in
+    @admin = users(:admin1)
+    sign_in @admin
   end
 
   test "should create reply_vote" do
     assert_difference('ReplyVote.count') do
-      post :create, reply_vote: @reply_vote.attributes
+      post :create, reply_vote: {
+          :reply => @reply
+      }
     end
 
-    assert_redirected_to reply_vote_path(assigns(:reply_vote))
+    assert_redirected_to posts_path
   end
 
-  test "should show reply_vote" do
-    get :show, id: @reply_vote.to_param
-    assert_response :success
+
+  test "user should not destroy reply_vote" do
+    assert_no_difference('ReplyVote.count') do
+      delete :destroy, id: @reply_vote.to_param
+    end
+
+    assert_redirected_to root_path
   end
 
-  test "should get edit" do
-    get :edit, id: @reply_vote.to_param
-    assert_response :success
-  end
-
-  test "should update reply_vote" do
-    put :update, id: @reply_vote.to_param, reply_vote: @reply_vote.attributes
-    assert_redirected_to reply_vote_path(assigns(:reply_vote))
-  end
-
-  test "should destroy reply_vote" do
+  test "admin should destroy reply_vote" do
+    admin_sign_in
     assert_difference('ReplyVote.count', -1) do
       delete :destroy, id: @reply_vote.to_param
     end
 
-    assert_redirected_to reply_votes_path
+    assert_redirected_to posts_path
   end
 end

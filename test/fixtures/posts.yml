@@ -1,11 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   title: Title1
   body: Body1
-  user: 
+  user_id: 1
 
 two:
+  id: 2
   title: Title1
   body: Body1
-  user: 
+  user_id: 1
+
+post1:
+  id: 3
+  title: Test Title
+  body: Test Body
+  user_id: 2

@@ -5,47 +5,43 @@ class VotesControllerTest < ActionController::TestCase
 
   setup do
     @vote = votes(:one)
+    @user = users(:one)
+    @post = posts(:one)
+    sign_in @user
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:votes)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
+  def admin_sign_in
+    @admin = users(:admin1)
+    sign_in @admin
   end
 
   test "should create vote" do
     assert_difference('Vote.count') do
-      post :create, vote: @vote.attributes
+      post :create, vote: {
+        :post_id => @post.id
+    }
     end
 
-    assert_redirected_to vote_path(assigns(:vote))
+    assert_redirected_to posts_path
   end
 
-  test "should show vote" do
-    get :show, id: @vote.to_param
-    assert_response :success
+
+  test "user should not destroy vote" do
+
+    assert_no_difference('Vote.count') do
+      delete :destroy, id: @vote.to_param
+    end
+
+    assert_redirected_to root_path
   end
 
-  test "should get edit" do
-    get :edit, id: @vote.to_param
-    assert_response :success
-  end
+  test "admin should destroy vote" do
+    admin_sign_in
 
-  test "should update vote" do
-    put :update, id: @vote.to_param, vote: @vote.attributes
-    assert_redirected_to vote_path(assigns(:vote))
-  end
-
-  test "should destroy vote" do
     assert_difference('Vote.count', -1) do
       delete :destroy, id: @vote.to_param
     end
 
-    assert_redirected_to votes_path
+    assert_redirected_to posts_path
   end
 end

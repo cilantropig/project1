@@ -2,7 +2,7 @@ class Reply < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
   has_many :reply_votes, :dependent => :destroy
-  validates :title, :body, :presence => true
+  validates :title, :body, :post_id, :presence => true
 
   def weight
     time = Time.now

@@ -1,41 +1,8 @@
 class ReplyVotesController < ApplicationController
-  # GET /reply_votes
-  # GET /reply_votes.json
-  def index
-    @reply_votes = ReplyVote.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @reply_votes }
-    end
-  end
-
-  # GET /reply_votes/1
-  # GET /reply_votes/1.json
-  def show
-    @reply_vote = ReplyVote.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @reply_vote }
-    end
-  end
-
-  # GET /reply_votes/new
-  # GET /reply_votes/new.json
-  def new
-    @reply_vote = ReplyVote.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @reply_vote }
-    end
-  end
-
-  # GET /reply_votes/1/edit
-  def edit
-    @reply_vote = ReplyVote.find(params[:id])
-  end
+  #only admin can delete vote
+  before_filter :admin_user, :only => :destroy
+  #only sign_in user can vote
+  before_filter :authorized
 
   # POST /reply_votes
   # POST /reply_votes.json
@@ -55,22 +22,6 @@ class ReplyVotesController < ApplicationController
     end
   end
 
-  # PUT /reply_votes/1
-  # PUT /reply_votes/1.json
-  def update
-    @reply_vote = ReplyVote.find(params[:id])
-
-    respond_to do |format|
-      if @reply_vote.update_attributes(params[:reply_vote])
-        format.html { redirect_to @reply_vote, notice: 'Reply vote was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @reply_vote.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /reply_votes/1
   # DELETE /reply_votes/1.json
   def destroy
@@ -78,8 +29,19 @@ class ReplyVotesController < ApplicationController
     @reply_vote.destroy
 
     respond_to do |format|
-      format.html { redirect_to reply_votes_url }
+      format.html { redirect_to posts_path }
       format.json { head :ok }
     end
   end
+
+  # methods used for before_filter
+  private
+  def admin_user
+    redirect_to(root_path) unless user_signed_in? and current_user.admin?
+  end
+
+  def authorized
+    redirect_to(root_path) unless user_signed_in?
+  end
+
 end
