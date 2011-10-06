@@ -3,7 +3,7 @@ require 'test_helper'
 class ReplyVoteTest < ActiveSupport::TestCase
   test "valid reply vote" do
     reply_vote = ReplyVote.create(
-      :user => users(:one),
+      :user => users(:two),
       :reply => replies(:one)
     )
 

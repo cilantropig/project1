@@ -4,7 +4,7 @@ class VoteTest < ActiveSupport::TestCase
 
   test "valid vote" do
     vote = Vote.create(
-      :user => users(:one),
+      :user => users(:two),
       :post => posts(:one)
     )
 
@@ -38,7 +38,5 @@ class VoteTest < ActiveSupport::TestCase
     )
     assert !vote2.save
   end
-
-  test ""
 
 end

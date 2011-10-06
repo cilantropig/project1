@@ -1,3 +1,4 @@
+require 'timecop'
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
@@ -52,7 +53,7 @@ class PostTest < ActiveSupport::TestCase
   test "weight drops -1 after vote" do
     oldWeight = posts(:one).weight
     vote = Vote.create(
-      :user => users(:one),
+      :user => users(:two),
       :post => posts(:one)
     )
     newWeight = posts(:one).weight
@@ -72,6 +73,35 @@ class PostTest < ActiveSupport::TestCase
     )
 
     assert post.active?
+  end
+
+  test "inactive post" do
+    post = Post.create(
+      :user => users(:one),
+      :title => "hey",
+      :body => "there"
+    )
+
+    Timecop.travel(Time.now + 10.days) do
+      assert !post.active?
+    end
+  end
+
+  test "active post with vote" do
+    post = Post.create(
+      :user => users(:one),
+      :title => "hey",
+      :body => "there"
+    )
+
+    vote = Vote.create(
+      :post => post,
+      :user => users(:two)
+    )
+
+    Timecop.travel(Time.now + 10.days) do
+      assert post.active?
+    end
   end
 
   test "included in search" do

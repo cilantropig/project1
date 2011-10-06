@@ -32,4 +32,5 @@ group :test do
   gem 'turn', :require => false
   gem 'cucumber'
   gem 'webrat'
+  gem 'timecop'
 end
