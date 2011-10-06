@@ -79,4 +79,16 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to admin_manage_users_path
   end
+
+  test "user should not promote user to admin" do
+      put :promote, id: @user.to_param
+      assert_redirected_to root_path
+  end
+
+  test "admin should promote user" do
+    admin_sign_in
+    put :promote, id: @user.to_param
+    assert_redirected_to admin_manage_users_path, :notice => "User successfully promoted."
+  end
+
 end
