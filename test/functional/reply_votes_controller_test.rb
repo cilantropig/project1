@@ -6,7 +6,7 @@ class ReplyVotesControllerTest < ActionController::TestCase
   setup do
     @reply_vote = reply_votes(:one)
     @user = users(:one)
-    @reply = replies(:one)
+    @reply = replies(:two)
     sign_in @user
   end
 
@@ -18,7 +18,7 @@ class ReplyVotesControllerTest < ActionController::TestCase
   test "should create reply_vote" do
     assert_difference('ReplyVote.count') do
       post :create, reply_vote: {
-          :reply => @reply
+          reply_id: @reply.id
       }
     end
 
