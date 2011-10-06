@@ -28,8 +28,10 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
+  gem 'test-unit'
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'cucumber'
   gem 'webrat'
+  gem 'timecop'
 end

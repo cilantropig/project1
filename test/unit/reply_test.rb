@@ -46,7 +46,7 @@ class ReplyTest < ActiveSupport::TestCase
   test "weight drops -1 after vote" do
     oldWeight = replies(:one).weight
     reply_vote = ReplyVote.create(
-      :user => users(:one),
+      :user => users(:two),
       :reply => replies(:one)
     )
     newWeight = replies(:one).weight
