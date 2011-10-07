@@ -17,7 +17,7 @@ class VotesControllerTest < ActionController::TestCase
 
   test "should create vote" do
     assert_difference('Vote.count') do
-      post :create, vote: {post_id: @post.id}
+      post :create, vote: {}, post_id: @post.id
     end
 
     assert_redirected_to posts_path

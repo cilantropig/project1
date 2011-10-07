@@ -10,6 +10,7 @@ class RepliesControllerTest < ActionController::TestCase
     }
     @user = users(:one)
     sign_in @user
+    @post = posts(:one)
   end
 
   def admin_sign_in
@@ -31,7 +32,7 @@ class RepliesControllerTest < ActionController::TestCase
   test "should create reply" do
     assert_difference('Reply.count') do
       post :create, reply: {title: 'Title_new',
-        body: 'Body_new', post_id: '1'}
+        body: 'Body_new', post_id: @post.id}
     end
 
     assert_redirected_to posts_path
