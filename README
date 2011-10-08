@@ -6,7 +6,7 @@ Chun He <che>
 Jeremy  Aube <jjaube>
 
 2. Test platforms
-Webrat, Cucumber
+Capybara, Cucumber
 
 3. Starting URL
 http://127.0.0.1:3000
@@ -18,5 +18,8 @@ Initial data loading (including default admin user): rake db:seed
 Default admin user login: admin@glq.com/ruby4all
 
 5. Other notes
-Extra credit: Webrat is used for integration testing
-Additional gem included: devise, webrat, cucumber, timecop
+Extra credit: Capybara is used for integration testing
+Additional gem included: devise, capybara, cucumber, timecop
+
+
+

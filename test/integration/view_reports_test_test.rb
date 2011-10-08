@@ -6,8 +6,8 @@ class ViewReportsTestTest < ActionDispatch::IntegrationTest
   test "view reports" do
     # login admin
     click_link "View reports"
-    assert_contain("Users report")
+    assert page.has_content?("Users report")
     click_link "Users report"
-    assert_contain("Total Votes on Own")
+    assert page.has_content?("Total Votes on Own")
   end
 end

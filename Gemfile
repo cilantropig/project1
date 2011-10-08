@@ -32,9 +32,12 @@ gem 'jquery-rails'
 
 group :test do
   gem 'test-unit'
+  gem "memory_test_fix"
+  # Pretty printed test output
+  gem 'turn', :require => false
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'cucumber'
-  gem 'webrat'
+  gem 'capybara'
   gem 'timecop'
 end

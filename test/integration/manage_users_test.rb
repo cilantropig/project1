@@ -6,7 +6,7 @@ class ManageUsersTest < ActionDispatch::IntegrationTest
   test "promote user to admin" do
     # login admin
     click_link "Manage users"
-    assert_contain("Actions")
+    assert page.has_content?("Actions")
     click_link "Make admin"
     # verify in the database that the user now is an admin
   end
@@ -14,7 +14,7 @@ class ManageUsersTest < ActionDispatch::IntegrationTest
   test "delete user" do
     # login admin
     click_link "Manage users"
-    assert_contain("Actions")
+    assert page.has_content?("Actions")
     click_link "Delete user"
     # verify in the database that the user and related posts, replies and votes have been deleted
   end

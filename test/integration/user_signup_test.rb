@@ -10,7 +10,7 @@ class UserSignupTest < ActionController::IntegrationTest
  # end
 
   def test_new_user_sign_up
-       visit root_path
+       visit new_user_registration_path
        click_link "Sign up"
        fill_in "First name", :with => "Peter"
        fill_in "Last name", :with => "Pan"
@@ -18,7 +18,7 @@ class UserSignupTest < ActionController::IntegrationTest
        fill_in "Password", :with =>"ruby4all"
        fill_in "Password confirmation", :with => "ruby4all"
        click_button "Sign up"
-  #     assert_contain "Welcome! You have signed up successfully."
+       assert page.has_content?("Welcome! You have signed up successfully.")
   end
 
 end
