@@ -15,9 +15,12 @@ http://127.0.0.1:3000
 Start command: rails server
 Development db:  rake db:migrate
 Initial data loading (including default admin user): rake db:seed
-Default admin user login: admin@glq.com/ruby4all
 
-5. Other notes
+5. Admin Info
+Default admin user login: admin@glq.com/ruby4all
+To create new admin user, use the "Manage User" Link, you can promote an existing user to an admin.
+
+6. Other notes
 Extra credit: Capybara is used for integration testing
 Additional gem included: devise, capybara, cucumber, timecop
 
