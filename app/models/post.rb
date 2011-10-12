@@ -25,7 +25,10 @@ class Post < ActiveRecord::Base
   def was_searched_for?(search)
     if search == nil or
         self.title.downcase.index(search) or
-        self.body.downcase.index(search)
+        self.body.downcase.index(search)  or
+        self.user.email.index(search) or
+        self.user.first_name.index(search) or
+        self.user.last_name.index(search) or
       return true
     else
       return false
