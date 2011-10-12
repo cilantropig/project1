@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
         self.body.downcase.index(search)  or
         self.user.email.index(search) or
         self.user.first_name.index(search) or
-        self.user.last_name.index(search) or
+        self.user.last_name.index(search)
       return true
     else
       return false
